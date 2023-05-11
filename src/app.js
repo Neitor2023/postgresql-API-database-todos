@@ -2,6 +2,7 @@ const express = require("express");
 const db = require('./utils/database')
 
 const Todos = require("./models/todos.models")
+const cors = require("cors")
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
@@ -14,7 +15,7 @@ db.sync() // si la tabla no existe la crea
     .catch((error)=> console.log(error))
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
