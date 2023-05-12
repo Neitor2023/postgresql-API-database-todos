@@ -78,7 +78,7 @@ app.get("/api/v1/todos/:id", async (req,res)=> {
 
 // si quiero encontrar por otro campo
 // encontrar una tarea por su description
-app.get("/api/v1/todos/:title", async (req,res)=>{
+app.get("/api/v1/todos/title/:title", async (req,res)=>{
     try {
         const { title } = req.params;    
         const todos = await Todos.findOne({
